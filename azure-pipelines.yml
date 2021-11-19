@@ -1,0 +1,33 @@
+name: Build Spring Boot Application
+
+trigger:
+  branches:
+    include:
+    - master
+    - refs/pull/*
+
+resources:
+  repositories:
+  - repository: pipelinetemplates # The name used to reference this repository in the checkout step
+    type: github
+    endpoint: 'vijaykumar-r'
+    name: 'vijaykumar-r/azure_shared_components'
+    ref: refs/heads/master
+
+extends:
+  template: pipeline_templates/azure_pipeline_template.yml@pipelinetemplates
+  parameters:
+    projectName: 'spring-boot-application'
+    checkOutSteps:
+      - checkout: self
+      - checkout: pipelinetemplates
+    buildType: 'java'
+    environment: 'dev'
+    workingDirectory: 'spring-boot-application'
+    sonarProjectKey: 'spring-boot-application'
+    # beforeBuildSteps:
+    #   - script: echo "FROM BEFORE BUILD STAGE"
+    #     displayName: 'Pre build'
+    # afterBuildSteps:
+    #   - script: echo "FROM AFTER BUILD STAGE"
+    #     displayName: 'Post build'
