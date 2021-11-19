@@ -15,7 +15,9 @@ resources:
     ref: refs/heads/master
 
 variables:
-  sonarProjectKey: 'spring-boot-application-gradle'
+  # workingDirectory: 'spring-boot-application-gradle'
+  # sonarProjectKey: 'spring-boot-application-gradle'
+
 
 extends:
   template: pipeline_templates/azure_pipeline_template.yml@pipelinetemplates
