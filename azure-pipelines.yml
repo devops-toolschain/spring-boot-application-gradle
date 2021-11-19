@@ -14,17 +14,23 @@ resources:
     name: 'vijaykumar-r/azure_shared_components'
     ref: refs/heads/master
 
+variables:
+  sonarProjectKey: 'spring-boot-application-gradle'
+
 extends:
   template: pipeline_templates/azure_pipeline_template.yml@pipelinetemplates
   parameters:
     projectName: 'spring-boot-application'
+    buildType: 'java'
+    workingDirectory: 'spring-boot-application'
+    environment: 'dev'
+    sonarProjectKey: 'spring-boot-application'
+    infraTerraformFolder: ''
     checkOutSteps:
       - checkout: self
       - checkout: pipelinetemplates
-    buildType: 'java'
-    environment: 'dev'
-    workingDirectory: 'spring-boot-application'
-    sonarProjectKey: 'spring-boot-application'
+
+    # sonarProjectKey: 'spring-boot-application'
     # beforeBuildSteps:
     #   - script: echo "FROM BEFORE BUILD STAGE"
     #     displayName: 'Pre build'
