@@ -22,12 +22,12 @@ resources:
 extends:
   template: pipeline_templates/azure_pipeline_template.yml@pipelinetemplates
   parameters:
-    projectName: 'spring-boot-application'
+    projectName: 'spring-boot-application-gradle'
     buildType: 'java'
     javaBuildTool: 'gradle'
-    workingDirectory: 'spring-boot-application'
+    workingDirectory: 'spring-boot-application-gradle'
     environment: 'dev'
-    sonarProjectKey: 'spring-boot-application'
+    sonarProjectKey: 'spring-boot-application-gradle'
     infraTerraformFolder: ''
     checkOutSteps:
       - checkout: self
