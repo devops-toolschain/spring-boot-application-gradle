@@ -14,7 +14,7 @@ resources:
     name: 'vijaykumar-r/azure_shared_components'
     ref: refs/heads/master
 
-variables:
+# variables:
   # workingDirectory: 'spring-boot-application-gradle'
   # sonarProjectKey: 'spring-boot-application-gradle'
 
