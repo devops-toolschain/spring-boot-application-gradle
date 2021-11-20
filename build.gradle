@@ -121,6 +121,7 @@ sonarqube {
   properties {
     property "sonar.projectName", "spring-boot-application-gradle"
     property "sonar.projectKey", "spring-boot-application-gradle"
+    property "sonar.organization", "devops-ref-architecture"
     property "sonar.host.url", "https://sonarcloud.io"
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
   }
