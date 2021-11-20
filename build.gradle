@@ -117,9 +117,6 @@ jacocoTestReport {
 //check.dependsOn integration
 project.tasks['sonarqube'].dependsOn check, test, integration, jacocoTestReport
 
-// property "sonar.host.url", "http://localhost:9000"
-// property "sonar.login", "cab684bc382156d7733773b01b123c95ea7862d9"
-
 sonarqube {
   properties {
     property "sonar.projectName", "spring-boot-application-gradle"
