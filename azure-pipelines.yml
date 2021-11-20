@@ -14,11 +14,6 @@ resources:
     name: 'vijaykumar-r/azure_shared_components'
     ref: refs/heads/master
 
-# variables:
-  # workingDirectory: 'spring-boot-application-gradle'
-  # sonarProjectKey: 'spring-boot-application-gradle'
-
-
 extends:
   template: pipeline_templates/azure_pipeline_template.yml@pipelinetemplates
   parameters:
