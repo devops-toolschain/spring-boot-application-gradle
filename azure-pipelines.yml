@@ -26,7 +26,7 @@ extends:
     buildType: 'java'
     javaBuildTool: 'gradle'
     workingDirectory: 'spring-boot-application-gradle'
-    environment: 'dev'
+    # environment: 'dev'
     sonarProjectKey: 'spring-boot-application-gradle'
     infraTerraformFolder: ''
     checkOutSteps:
