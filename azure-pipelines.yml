@@ -14,6 +14,9 @@ resources:
     name: 'vijaykumar-r/azure_shared_components'
     ref: refs/heads/master
 
+variables:
+  - template: /pipeline_templates/commmon/variables.yml@pipelinetemplates
+
 extends:
   template: pipeline_templates/azure_pipeline_template.yml@pipelinetemplates
   parameters:
