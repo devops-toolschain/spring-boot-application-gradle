@@ -22,7 +22,7 @@ extends:
     javaBuildTool: 'gradle'
     workingDirectory: 'spring-boot-application-gradle'
     sonarProjectKey: 'spring-boot-application-gradle'
-    infraTerraformFolder: ''
+    infraTerraformFolder: 'infrastructure'
     checkOutSteps:
       - checkout: self
       - checkout: pipelinetemplates
