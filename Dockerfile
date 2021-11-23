@@ -1,11 +1,9 @@
-ARG APP_INSIGHTS_AGENT_VERSION=2.5.1
-
 # Application image
 
-FROM hmctspublic.azurecr.io/base/java:openjdk-11-distroless-1.2
+FROM openjdk:11-jdk-slim
 
 COPY lib/AI-Agent.xml /opt/app/
-COPY build/libs/spring-boot-template.jar /opt/app/
+COPY build/libs/spring-boot-app.jar /opt/app/
 
 EXPOSE 4550
-CMD [ "spring-boot-template.jar" ]
+CMD [ "spring-boot-app.jar" ]

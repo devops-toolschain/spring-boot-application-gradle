@@ -195,7 +195,7 @@ dependencies {
 mainClassName = 'uk.gov.hmcts.reform.demo.Application'
 
 bootJar {
-  archiveFileName = "spring-boot-template.jar"
+  archiveFileName = "spring-boot-app.jar"
 
   manifest {
     attributes('Implementation-Version': project.version.toString())

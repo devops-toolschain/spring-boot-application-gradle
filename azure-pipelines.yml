@@ -17,7 +17,7 @@ resources:
 extends:
   template: pipeline_templates/azure_pipeline_template.yml@pipelinetemplates
   parameters:
-    projectName: 'spring-boot-application-gradle'
+    projectName: 'Spring Boot App Gradle'
     buildType: 'java'
     javaBuildTool: 'gradle'
     workingDirectory: 'spring-boot-application-gradle'
