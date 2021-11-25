@@ -23,6 +23,7 @@ extends:
     workingDirectory: 'spring-boot-application-gradle'
     sonarProjectKey: 'spring-boot-application-gradle'
     infraTerraformFolder: 'infrastructure'
+    dockerOrgName: 'vijayace'
     checkOutSteps:
       - checkout: self
       - checkout: pipelinetemplates
