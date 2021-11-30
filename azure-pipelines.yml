@@ -1,10 +1,10 @@
 name: Build Spring Boot Application
 
-trigger:
-  branches:
-    include:
-    - master
-    - refs/pull/*
+trigger: none
+  # branches:
+  #   include:
+  #   - master
+  #   - refs/pull/*
 
 resources:
   repositories:
@@ -15,23 +15,26 @@ resources:
     ref: refs/heads/master
 
 extends:
-  template: pipeline_templates/azure_pipeline_template.yml@pipelinetemplates
+  template: pipeline_templates/pipeline_template_new.yml@pipelinetemplates
   parameters:
-    projectName: 'Spring Boot App Gradle'
-    buildType: 'java'
-    javaBuildTool: 'gradle'
-    workingDirectory: 'spring-boot-application-gradle'
-    sonarProjectKey: 'spring-boot-application-gradle'
-    infraTerraformFolder: 'infrastructure'
-    dockerOrgName: 'vijayace'
+    agentPool: 'ubuntu-18.04'
     checkOutSteps:
       - checkout: self
       - checkout: pipelinetemplates
+    projectName: 'Spring Boot App Gradle'
+    workingDirectory: 'spring-boot-application-gradle'
+    buildType: 'java'
+    javaBuildTool: 'gradle'
+    jdkVersion: '1.11'
+    sonarProjectKey: 'spring-boot-application-gradle'
+    infraTerraformFolder: 'infrastructure'
+    dockerOrgName: 'vijayace'
+    buildDockerImage: false
 
     # sonarProjectKey: 'spring-boot-application'
-    # beforeBuildSteps:
+    # beforeJobSteps:
     #   - script: echo "FROM BEFORE BUILD STAGE"
     #     displayName: 'Pre build'
-    # afterBuildSteps:
+    # afterJobSteps:
     #   - script: echo "FROM AFTER BUILD STAGE"
     #     displayName: 'Post build'
