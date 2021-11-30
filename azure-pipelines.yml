@@ -15,7 +15,7 @@ resources:
     ref: refs/heads/master
 
 extends:
-  template: pipeline_templates/pipeline_template_new.yml@pipelinetemplates
+  template: pipeline_templates/pipeline_template.yml@pipelinetemplates
   parameters:
     agentPool: 'ubuntu-18.04'
     checkOutSteps:
