@@ -18,9 +18,6 @@ extends:
   template: pipeline_templates/pipeline_template.yml@pipelinetemplates
   parameters:
     agentPool: 'ubuntu-18.04'
-    # checkOutSteps:
-    #   - checkout: self
-    #   - checkout: pipelinetemplates
     projectName: 'Spring Boot App Gradle'
     workingDirectory: 'spring-boot-application-gradle'
     buildType: 'java'
