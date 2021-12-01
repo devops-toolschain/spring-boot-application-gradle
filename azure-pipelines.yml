@@ -27,9 +27,10 @@ extends:
     javaBuildTool: 'gradle'
     jdkVersion: '1.11'
     sonarProjectKey: 'spring-boot-application-gradle'
+    buildInfrastructure: true
     infraTerraformFolder: 'infrastructure'
-    dockerOrgName: 'vijayace'
-    buildDockerImage: false
+    buildDockerImage: true
+    dockerFilePath: '/Dockerfile'
 
     # sonarProjectKey: 'spring-boot-application'
     # beforeJobSteps:
