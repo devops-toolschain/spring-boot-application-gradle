@@ -17,7 +17,7 @@ resources:
 extends:
   template: pipeline_templates/pipeline_template.yml@pipelinetemplates
   parameters:
-    agentPool: 'ubuntu-18.04'
+    # agentPool: 'ubuntu-18.04'
     projectName: 'Spring Boot App Gradle'
     workingDirectory: 'spring-boot-application-gradle'
     buildType: 'java'
