@@ -1,6 +1,7 @@
 # Spring Boot application template
 
 [![Build Status](https://travis-ci.org/hmcts/spring-boot-template.svg?branch=master)](https://travis-ci.org/hmcts/spring-boot-template)
+[![Build Status](https://dev.azure.com/vijaykumar-r/devops_reference_architecture/_apis/build/status/Spring%20Application%20-%20Gradle?repoName=vijaykumar-r%2Fspring-boot-application-gradle&branchName=master)](https://dev.azure.com/vijaykumar-r/devops_reference_architecture/_build/latest?definitionId=12&repoName=vijaykumar-r%2Fspring-boot-application-gradle&branchName=master)
 
 ## Purpose
 
@@ -190,4 +191,3 @@ Here are some other functionalities it provides:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
