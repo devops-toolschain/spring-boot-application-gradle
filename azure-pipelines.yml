@@ -25,9 +25,7 @@ extends:
     jdkVersion: '1.11'
     javaOutputJarFile: 'build/libs/spring-boot-app.jar'
     sonarProjectKey: 'spring-boot-application-gradle'
-    buildInfrastructure: true
     infraTerraformFolder: 'infrastructure'
-    buildDockerImage: true
     dockerFilePath: 'Dockerfile'
 
     # sonarProjectKey: 'spring-boot-application'
