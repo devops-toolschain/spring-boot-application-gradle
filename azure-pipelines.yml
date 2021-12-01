@@ -22,7 +22,7 @@ extends:
     #   - checkout: self
     #   - checkout: pipelinetemplates
     projectName: 'Spring Boot App Gradle'
-    # workingDirectory: 'spring-boot-application-gradle'
+    workingDirectory: 'spring-boot-application-gradle'
     buildType: 'java'
     javaBuildTool: 'gradle'
     jdkVersion: '1.11'
