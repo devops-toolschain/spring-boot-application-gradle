@@ -1,10 +1,12 @@
 name: Build Spring Boot Application
 
-trigger: none
+trigger:
   branches:
     include:
     # - master
-    - refs/pull/*
+      - refs/pull/*
+    exclude:
+      - master
 
 resources:
   repositories:
