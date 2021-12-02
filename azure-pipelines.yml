@@ -1,10 +1,10 @@
 name: Build Spring Boot Application
 
 trigger: none
-  # branches:
-  #   include:
-  #   - master
-  #   - refs/pull/*
+  branches:
+    include:
+    # - master
+    - refs/pull/*
 
 resources:
   repositories:
@@ -17,7 +17,6 @@ resources:
 extends:
   template: pipeline_templates/pipeline_template.yml@pipelinetemplates
   parameters:
-    # agentPool: 'ubuntu-18.04'
     projectName: 'Spring Boot App Gradle'
     workingDirectory: 'spring-boot-application-gradle'
     buildType: 'java'
