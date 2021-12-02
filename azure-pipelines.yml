@@ -27,10 +27,6 @@ extends:
     infraTerraformFolder: 'infrastructure'
     dockerFilePath: 'Dockerfile'
 
-    # sonarProjectKey: 'spring-boot-application'
-    # beforeJobSteps:
-    #   - script: echo "FROM BEFORE BUILD STAGE"
-    #     displayName: 'Pre build'
     # afterJobSteps:
     #   - script: echo "FROM AFTER BUILD STAGE"
     #     displayName: 'Post build'
