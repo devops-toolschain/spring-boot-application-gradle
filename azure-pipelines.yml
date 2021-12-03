@@ -3,10 +3,9 @@ name: Build Spring Boot Application
 trigger:
   branches:
     include:
-    # - master
-      - refs/pull/*
-    exclude:
       - master
+      - dev
+      - test
 
 resources:
   repositories:
