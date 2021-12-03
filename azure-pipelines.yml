@@ -13,6 +13,7 @@ pr:
 steps:
   - bash: |
       echo "BRANCH NAME: $(Build.SourceBranchName)"
+      echo "FROM PR BRANCH test-2"
     displayName: 'Custom Script'
 
   # branches:
