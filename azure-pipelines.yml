@@ -14,6 +14,7 @@ steps:
   - bash: |
       echo "BRANCH NAME: $(Build.SourceBranchName)"
       echo "FROM PR BRANCH test-2"
+      echo "FROM PR BRANCH test-2 again"
     displayName: 'Custom Script'
 
   # branches:
