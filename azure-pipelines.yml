@@ -10,44 +10,31 @@ trigger:
 pr:
   - master
 
-steps:
-  - bash: |
-      echo "BRANCH NAME: $(Build.SourceBranchName)"
-      echo "FROM PR BRANCH test-2"
-      echo "FROM PR BRANCH test-2 again"
-    displayName: 'Custom Script'
+resources:
+  repositories:
+  - repository: pipelinetemplates # The name used to reference this repository in the checkout step
+    type: github
+    endpoint: 'vijaykumar-r'
+    name: 'vijaykumar-r/azure_shared_components'
+    ref: refs/heads/master
 
-  # branches:
-  #   include:
-  #     - master
-  #     - dev
-  #     - test
+extends:
+  template: pipeline_templates/pipeline_template.yml@pipelinetemplates
+  parameters:
+    projectName: 'Spring Boot App Gradle'
+    workingDirectory: 'spring-boot-application-gradle'
+    buildType: 'java'
+    javaBuildTool: 'gradle'
+    jdkVersion: '1.11'
+    javaOutputJarFile: 'build/libs/spring-boot-app.jar'
+    sonarProjectKey: 'spring-boot-application-gradle'
+    infraTerraformFolder: 'infrastructure'
+    dockerFilePath: 'Dockerfile'
 
-# resources:
-#   repositories:
-#   - repository: pipelinetemplates # The name used to reference this repository in the checkout step
-#     type: github
-#     endpoint: 'vijaykumar-r'
-#     name: 'vijaykumar-r/azure_shared_components'
-#     ref: refs/heads/master
-#
-# extends:
-#   template: pipeline_templates/pipeline_template.yml@pipelinetemplates
-#   parameters:
-#     projectName: 'Spring Boot App Gradle'
-#     workingDirectory: 'spring-boot-application-gradle'
-#     buildType: 'java'
-#     javaBuildTool: 'gradle'
-#     jdkVersion: '1.11'
-#     javaOutputJarFile: 'build/libs/spring-boot-app.jar'
-#     sonarProjectKey: 'spring-boot-application-gradle'
-#     infraTerraformFolder: 'infrastructure'
-#     dockerFilePath: 'Dockerfile'
-#
-#     # sonarProjectKey: 'spring-boot-application'
-#     # beforeJobSteps:
-#     #   - script: echo "FROM BEFORE BUILD STAGE"
-#     #     displayName: 'Pre build'
-#     # afterJobSteps:
-#     #   - script: echo "FROM AFTER BUILD STAGE"
-#     #     displayName: 'Post build'
+    # sonarProjectKey: 'spring-boot-application'
+    # beforeJobSteps:
+    #   - script: echo "FROM BEFORE BUILD STAGE"
+    #     displayName: 'Pre build'
+    # afterJobSteps:
+    #   - script: echo "FROM AFTER BUILD STAGE"
+    #     displayName: 'Post build'
