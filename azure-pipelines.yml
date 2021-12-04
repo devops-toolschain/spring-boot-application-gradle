@@ -34,22 +34,22 @@ extends:
     dockerFilePath: 'Dockerfile'
 
     beforeBuildSteps:
-      - script: echo "MESSAGE FROM BEFORE BUILD STEPS"
+      - script: echo "MESSAGE FROM PRE BUILD STEPS"
         displayName: 'Pre build'
     afterBuildSteps:
-      - script: echo "MESSAGE FROM AFTER BUILD STEPS"
+      - script: echo "MESSAGE FROM POST BUILD STEPS"
         displayName: 'Post build'
 
     beforeBuildInfraSteps:
-      - script: echo "MESSAGE FROM BEFORE INFRA BUILD STEPS"
+      - script: echo "MESSAGE FROM PRE INFRA BUILD STEPS"
         displayName: 'Pre Infra Build'
     afterBuildInfraSteps:
-      - script: echo "MESSAGE FROM AFTER INFRA BUILD STEPS"
+      - script: echo "MESSAGE FROM POST INFRA BUILD STEPS"
         displayName: 'Post Infra Build'
 
     beforeImageBuildSteps:
-      - script: echo "MESSAGE FROM BEFORE IMAGE BUILD STEPS"
+      - script: echo "MESSAGE FROM PRE IMAGE BUILD STEPS"
         displayName: 'Pre Image Build'
     afterImageBuildSteps:
-      - script: echo "MESSAGE FROM AFTER IMAGE BUILD STEPS"
+      - script: echo "MESSAGE FROM POST IMAGE BUILD STEPS"
         displayName: 'Post Image Build'
