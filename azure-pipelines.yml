@@ -33,11 +33,23 @@ extends:
     infraTerraformFolder: 'infrastructure'
     dockerFilePath: 'Dockerfile'
 
+    beforeBuildSteps:
+      - script: echo "MESSAGE FROM BEFORE BUILD STEPS"
+        displayName: 'Pre build'
+    afterBuildSteps:
+      - script: echo "MESSAGE FROM AFTER BUILD STEPS"
+        displayName: 'Post build'
 
-    # sonarProjectKey: 'spring-boot-application'
-    # beforeJobSteps:
-    #   - script: echo "FROM BEFORE BUILD STAGE"
-    #     displayName: 'Pre build'
-    # afterJobSteps:
-    #   - script: echo "FROM AFTER BUILD STAGE"
-    #     displayName: 'Post build'
+    beforeBuildInfraSteps:
+      - script: echo "MESSAGE FROM BEFORE INFRA BUILD STEPS"
+        displayName: 'Pre Infra Build'
+    afterBuildInfraSteps:
+      - script: echo "MESSAGE FROM AFTER INFRA BUILD STEPS"
+        displayName: 'Post Infra Build'
+
+    beforeImageBuildSteps:
+      - script: echo "MESSAGE FROM BEFORE IMAGE BUILD STEPS"
+        displayName: 'Pre Image Build'
+    afterImageBuildSteps:
+      - script: echo "MESSAGE FROM AFTER IMAGE BUILD STEPS"
+        displayName: 'Post Image Build'
