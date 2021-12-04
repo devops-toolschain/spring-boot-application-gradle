@@ -26,6 +26,8 @@ extends:
     buildType: 'java'
     javaBuildTool: 'gradle'
     jdkVersion: '1.11'
+    enableSmokeTest: true
+    enableFunctionalTest: true
     javaOutputJarFile: 'build/libs/spring-boot-app.jar'
     sonarProjectKey: 'spring-boot-application-gradle'
     infraTerraformFolder: 'infrastructure'
