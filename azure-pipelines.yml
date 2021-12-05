@@ -12,10 +12,10 @@ pr:
 
 resources:
   repositories:
-  - repository: pipelinetemplates # The name used to reference this repository in the checkout step
+  - repository: pipelinelibrary # The name used to reference this repository in the checkout step. This name must be set to pipelinelibrary
     type: github
     endpoint: 'vijaykumar-r'
-    name: 'vijaykumar-r/azure_shared_components'
+    name: 'vijaykumar-r/azure-pipeline-library'
     ref: refs/heads/master
 
 extends:
