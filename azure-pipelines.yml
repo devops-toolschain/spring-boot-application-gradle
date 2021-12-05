@@ -19,7 +19,7 @@ resources:
     ref: refs/heads/master
 
 extends:
-  template: pipeline_templates/pipeline_template.yml@pipelinetemplates
+  template: pipeline_templates/pipeline_template.yml@pipelinelibrary
   parameters:
     projectName: 'Spring Boot App Gradle'
     workingDirectory: 'spring-boot-application-gradle'
