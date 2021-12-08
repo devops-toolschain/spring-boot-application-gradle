@@ -16,7 +16,7 @@ resources:
     type: github
     endpoint: 'vijaykumar-r'
     name: 'vijaykumar-r/azure-pipeline-library'
-    ref: refs/heads/master
+    ref: refs/heads/test-stage
 
 extends:
   template: pipeline_templates/pipeline_template.yml@pipelinelibrary
@@ -26,8 +26,6 @@ extends:
     buildType: 'java'
     javaBuildTool: 'gradle'
     jdkVersion: '1.11'
-    enableSmokeTest: true
-    enableFunctionalTest: true
     javaOutputJarFile: 'build/libs/spring-boot-app.jar'
     sonarProjectKey: 'spring-boot-application-gradle'
     infraTerraformFolder: 'infrastructure'
@@ -53,3 +51,17 @@ extends:
     afterImageBuildSteps:
       - script: echo "MESSAGE FROM POST IMAGE BUILD STEPS"
         displayName: 'Post Image Build'
+
+    beforeSmokeTestSteps:
+      - script: echo "MESSAGE FROM PRE SMOKE TEST STEPS"
+        displayName: 'Pre Smoke Test'
+    afterSmokeTestSteps:
+      - script: echo "MESSAGE FROM POST SMOKE TEST STEPS"
+        displayName: 'Post Smoke Test'
+
+    beforeFunctionalTestSteps:
+      - script: echo "MESSAGE FROM PRE FUNCTIONAL TEST STEPS"
+        displayName: 'Pre Functional Test'
+    afterFunctionalTestSteps:
+      - script: echo "MESSAGE FROM POST FUNCTIONAL TEST STEPS"
+        displayName: 'Post Functional Test'
