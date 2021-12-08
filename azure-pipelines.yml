@@ -16,7 +16,7 @@ resources:
     type: github
     endpoint: 'vijaykumar-r'
     name: 'vijaykumar-r/azure-pipeline-library'
-    ref: refs/heads/test-stage
+    ref: refs/heads/master
 
 extends:
   template: pipeline_templates/pipeline_template.yml@pipelinelibrary
