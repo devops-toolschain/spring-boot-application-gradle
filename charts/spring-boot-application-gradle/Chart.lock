@@ -1,0 +1,6 @@
+dependencies:
+- name: java
+  repository: oci://devopstoolschain.azurecr.io/helm/v3/repo
+  version: 0.1.0
+digest: sha256:9b0f99e648a2384e6a9a68a05b1a9dc9d76f90d9a62177638ba83aa1ed3d2b1a
+generated: "2021-12-24T21:39:06.33362Z"
