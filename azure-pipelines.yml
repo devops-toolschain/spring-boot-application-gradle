@@ -14,8 +14,8 @@ resources:
   repositories:
   - repository: pipelinelibrary # The name used to reference this repository in the checkout step. This name must be set to pipelinelibrary
     type: github
-    endpoint: 'vijaykumar-r'
-    name: 'vijaykumar-r/azure-pipeline-library'
+    endpoint: 'devops-toolschain'
+    name: 'devops-toolschain/azure-pipeline-library'
     ref: refs/heads/master
 
 extends:
