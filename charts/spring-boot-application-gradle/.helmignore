@@ -21,4 +21,4 @@
 *.tmproj
 .vscode/
 Chart.lock
-**/*.tgz
+*.tgz
