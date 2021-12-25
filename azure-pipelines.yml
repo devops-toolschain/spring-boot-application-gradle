@@ -70,7 +70,7 @@ extends:
 
     beforeHelmPublishSteps:
       - script: echo "MESSAGE FROM PRE HELM PUBLISH STEPS"
-        displayName: 'Pre Functional Test'
+        displayName: 'Pre Helm Publish'
     afterHelmPublishSteps:
       - script: echo "MESSAGE FROM POST HELM PUBLISH STEPS"
-        displayName: 'Post Functional Test'
+        displayName: 'Post Helm Publish'
