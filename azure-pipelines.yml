@@ -30,6 +30,8 @@ extends:
     sonarProjectKey: 'spring-boot-application-gradle'
     infraTerraformFolder: 'infrastructure'
     dockerFilePath: 'Dockerfile'
+    chartName: 'spring-boot-application-gradle'
+    chartPath: 'charts/spring-boot-application-gradle'
 
     beforeBuildSteps:
       - script: echo "MESSAGE FROM PRE BUILD STEPS"
@@ -64,4 +66,11 @@ extends:
         displayName: 'Pre Functional Test'
     afterFunctionalTestSteps:
       - script: echo "MESSAGE FROM POST FUNCTIONAL TEST STEPS"
+        displayName: 'Post Functional Test'
+
+    beforeHelmPublishSteps:
+      - script: echo "MESSAGE FROM PRE HELM PUBLISH STEPS"
+        displayName: 'Pre Functional Test'
+    afterHelmPublishSteps:
+      - script: echo "MESSAGE FROM POST HELM PUBLISH STEPS"
         displayName: 'Post Functional Test'
