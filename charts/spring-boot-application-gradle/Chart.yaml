@@ -10,3 +10,7 @@ dependencies:
   - name: java
     version: 0.1.0
     repository: oci://devopstoolschain.azurecr.io/helm/v3/repo
+
+  # - name: java
+  #   version: 0.1.0
+  #   repository: "file://../../../chart-java/java"
