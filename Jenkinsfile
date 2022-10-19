@@ -8,7 +8,11 @@ podTemplate {
         }
         
         stage('Run shell') {
-            sh 'echo hello world'
+            steps {
+                script {
+                    sh 'echo hello world from script'
+                }
+            }
         }
     }
 }
