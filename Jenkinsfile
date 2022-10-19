@@ -1,5 +1,7 @@
 podTemplate {
     node(POD_LABEL) {
+        customWorkspace '/some/other/path'
+
         stage('Checkout') {
             checkout([$class: 'GitSCM',
                     branches: [[name: '*/master']],
@@ -8,11 +10,9 @@ podTemplate {
         }
         
         stage('Run shell') {
-            steps {
-                script {
-                    sh 'echo hello world from script'
-                }
-            }
+            sh 'echo hello world'
+
+            sh 'echo Workspace is $WORKSPACE'
         }
     }
 }
