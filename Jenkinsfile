@@ -1,7 +1,5 @@
 podTemplate {
     node(POD_LABEL) {
-        customWorkspace '/some/other/path'
-
         stage('Checkout') {
             checkout([$class: 'GitSCM',
                     branches: [[name: '*/master']],
