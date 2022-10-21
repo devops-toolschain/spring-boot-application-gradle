@@ -42,22 +42,20 @@ module "vm_nsg_rules" {
   nsg_rules_prefix_range      = local.nsg_rules_range
 }
 
-
-# # Create a NIC a Primary IP and multiple secondary IPs
-# module "vm_nic" {
-#   source                        = "../../../modules/tf-az-vm-nic"
-#   virtual_machine_name          = var.vm_name[terraform.workspace]
-#   resource_group_name           = data.azurerm_resource_group.resource_group.name
-#   location                      = data.azurerm_resource_group.resource_group.location
-#   network_security_group_id     = module.vm_nsg.id
-#   subnet_id                     = data.azurerm_subnet.subnet.id
-#   private_ip_address            = null
-#   private_ip_address_allocation = "Dynamic"
-#   public_ip_address_id          = null
-#   enable_accelerated_networking = "false"
-#   #secondary_private_ips         = var.secondary_private_ips[terraform.workspace] # Create one or more secondary IPs
-#   tags                          = local.tags
-# }
+module "vm_nic" {
+  source                        = "github.com/devops-toolschain/azure-terraform-modules.git//az-nsg-security-rule"
+  virtual_machine_name          = local.vm_name
+  resource_group_name           = module.pub_rg.name
+  location                      = var.location
+  network_security_group_id     = module.pub_nsg.id
+  subnet_id                     = module.pub_vnet_subnet.id
+  private_ip_address            = null
+  private_ip_address_allocation = "Dynamic"
+  public_ip_address_id          = null
+  enable_accelerated_networking = "false"
+  #secondary_private_ips         = var.secondary_private_ips[terraform.workspace] # Create one or more secondary IPs
+  tags                          = var.tags
+}
 
 # # Create Virtual Machine
 # module "vm" {
