@@ -4,7 +4,7 @@
 # }
 
 module "vm_rg" {
-  source    = "git@github.com:devops-toolschain/azure-terraform-modules.git//az-resource-group"
+  source   = "github.com/devops-toolschain/azure-terraform-modules.git//az-resource-group"
   name     = "pub"
   location = var.location
   tags     = var.tags
