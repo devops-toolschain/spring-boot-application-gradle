@@ -3,10 +3,6 @@
 #   location = var.location
 # }
 
-locals {
-  vm_name = "spring-app-vm"
-}
-
 module "pub_rg" {
   source   = "github.com/devops-toolschain/azure-terraform-modules.git//az-resource-group"
   name     = "pub"
@@ -39,12 +35,12 @@ module "pub_nsg" {
   tags                 = var.tags
 }
 
-# module "vm_nsg_rules" {
-#   source                      = "../../../modules/tf-az-nsg-security-rule"
-#   resource_group_name         = data.azurerm_resource_group.resource_group.name
-#   network_security_group_name = module.vm_nsg.name
-#   nsg_rules_prefix_range      = local.vm_nsg_rules_range
-# }
+module "vm_nsg_rules" {
+  source                      = "github.com/devops-toolschain/azure-terraform-modules.git//az-nsg-security-rule"
+  resource_group_name         = module.pub_rg.name
+  network_security_group_name = module.pub_nsg.name
+  nsg_rules_prefix_range      = local.nsg_rules_range
+}
 
 
 # # Create a NIC a Primary IP and multiple secondary IPs
