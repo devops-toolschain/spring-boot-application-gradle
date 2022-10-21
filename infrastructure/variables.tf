@@ -9,7 +9,7 @@ variable "env" {
 
 variable "tags" {
   type = map(string)
-  default  = {
+  default = {
     project = "Publicis"
   }
 }
