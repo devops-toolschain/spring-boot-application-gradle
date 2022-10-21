@@ -47,15 +47,15 @@ podTemplate(containers: [
 
                         sh 'terraform version'
                     
-                        sh 'terraform init -reconfigure \
+                        sh 'terraform init -reconfigure -no-color \
                             -backend-config "resource_group_name=$TF_RESOURCEGROUP" \
                             -backend-config "storage_account_name=$TF_STORAGEACCOUNT" \
                             -backend-config "container_name=$TF_CONTAINERNAME" \
                             -backend-config "key=$JOB_BASE_NAME/prod/terraform.tfstate"'
     
-                        sh 'terraform plan -out=tfplan -var env=prod -var-file=prod.tfvars'
+                        sh 'terraform plan -no-color -out=tfplan -var env=prod -var-file=prod.tfvars'
 
-                        sh 'terraform apply -auto-approve tfplan'
+                        sh 'terraform apply -no-color -auto-approve tfplan'
                         
                     }
                 }

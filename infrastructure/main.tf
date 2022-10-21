@@ -3,6 +3,10 @@
 #   location = var.location
 # }
 
+locals {
+  vm_name = "spring-app-vm"
+}
+
 module "pub_rg" {
   source   = "github.com/devops-toolschain/azure-terraform-modules.git//az-resource-group"
   name     = "pub"
@@ -27,13 +31,13 @@ module "pub_vnet_subnet" {
   address_prefixes     = ["10.0.0.0/24"]
 }
 
-# module "vm_nsg" {
-#   source               = "../../../modules/tf-az-nsg-vm"
-#   resource_group_name  = data.azurerm_resource_group.resource_group.name
-#   location             = data.azurerm_resource_group.resource_group.location
-#   virtual_machine_name = var.vm_name[terraform.workspace]
-#   tags                 = local.tags
-# }
+module "pub_nsg" {
+  source               = "github.com/devops-toolschain/azure-terraform-modules.git//az-nsg-vm"
+  resource_group_name  = module.pub_rg.name
+  location             = var.location
+  virtual_machine_name = local.vm_name
+  tags                 = var.tags
+}
 
 # module "vm_nsg_rules" {
 #   source                      = "../../../modules/tf-az-nsg-security-rule"
