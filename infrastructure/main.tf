@@ -45,9 +45,8 @@ module "vm_nsg_rules" {
 module "pub_publicip" {
     source                = "github.com/devops-toolschain/azure-terraform-modules.git//az-publicip"
     publicip_label        = local.vm_name
-    resource_group_name   = data.azurerm_resource_group.resource_group.name
-    location              = data.azurerm_resource_group.resource_group.location
-    region_code           = module.global.region_code
+    resource_group_name   = module.pub_rg.name
+    location              = var.location
     sku                   = "Standard"
     allocation_method     = "Static"
     tags                  = var.tags
