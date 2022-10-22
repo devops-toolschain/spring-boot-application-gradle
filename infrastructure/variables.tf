@@ -6,57 +6,57 @@ locals {
 
   nsg_rules_range = {
     allow_ssh = {
-        name                        = "allow-ssh"
-        priority                    = "100"
-        direction                   = "Inbound"
-        access                      = "Allow"
-        protocol                    = "Tcp"
-        source_address_prefix       = "*"
-        source_port_range           = "*"
-        destination_address_prefix  = "*"
-        destination_port_range      = "22"
-        description                 = "Allow port 22"
+      name                       = "allow-ssh"
+      priority                   = "100"
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      source_address_prefix      = "*"
+      source_port_range          = "*"
+      destination_address_prefix = "*"
+      destination_port_range     = "22"
+      description                = "Allow port 22"
     }
 
     allow_80 = {
-        name                        = "allow-80"
-        priority                    = "110"
-        direction                   = "Inbound"
-        access                      = "Allow"
-        protocol                    = "Tcp"
-        source_address_prefix       = "*"
-        source_port_range           = "*"
-        destination_address_prefix  = "*"
-        destination_port_range      = "80"
-        description                 = "Allow port 80"
+      name                       = "allow-80"
+      priority                   = "110"
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      source_address_prefix      = "*"
+      source_port_range          = "*"
+      destination_address_prefix = "*"
+      destination_port_range     = "80"
+      description                = "Allow port 80"
     }
 
     allow_443 = {
-        name                        = "allow-443"
-        priority                    = "120"
-        direction                   = "Inbound"
-        access                      = "Allow"
-        protocol                    = "Tcp"
-        source_address_prefix       = "*"
-        source_port_range           = "*"
-        destination_address_prefix  = "*"
-        destination_port_range      = "443"
-        description                 = "Allow port 443"
+      name                       = "allow-443"
+      priority                   = "120"
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      source_address_prefix      = "*"
+      source_port_range          = "*"
+      destination_address_prefix = "*"
+      destination_port_range     = "443"
+      description                = "Allow port 443"
     }
   }
 }
 
 variable "os_disk" {
-    type = object({
-      caching              = string
-      storage_account_type = string
-      disk_size_gb         = string
-    })
-    default = {
-      caching           = "ReadOnly"
-      managed_disk_type = "StandardSSD_LRS"
-      disk_size_gb      = "16"
-    }
+  type = object({
+    caching              = string
+    storage_account_type = string
+    disk_size_gb         = string
+  })
+  default = {
+    caching              = "ReadOnly"
+    storage_account_type = "StandardSSD_LRS"
+    disk_size_gb         = "16"
+  }
 }
 
 variable "source_image_reference" {

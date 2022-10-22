@@ -64,7 +64,7 @@ module "vm" {
   vm_name             = local.vm_name
   resource_group_name = module.pub_rg.name
   location            = var.location
-  
+
   admin_username = "azureadmin"
   ssh_public_key = file("ssh_keys/id_pub_project.pub")
 
@@ -72,10 +72,10 @@ module "vm" {
   network_interface_ids = [module.vm_nic.id]
 
   # VM configuration
-  vm_size                 = local.vm_size
-  os_disk         = var.os_disk
-  source_image_reference  = var.source_image_reference
-  tags                    = local.tags
+  vm_size                = local.vm_size
+  os_disk                = var.os_disk
+  source_image_reference = var.source_image_reference
+  tags                   = local.tags
 }
 
 # # Create VM Extensions
