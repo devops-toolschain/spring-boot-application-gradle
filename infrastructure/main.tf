@@ -53,7 +53,6 @@ module "vm_nic" {
   private_ip_address_allocation = "Dynamic"
   public_ip_address_id          = null
   enable_accelerated_networking = "false"
-  #secondary_private_ips         = var.secondary_private_ips[terraform.workspace] # Create one or more secondary IPs
   tags                          = var.tags
 }
 
@@ -71,9 +70,6 @@ module "vm" {
 
   # NIC configurtion
   network_interface_ids = [module.vm_nic.id]
-   #zones                       = ["1"] # Zones must not be set if availability set is required
-   #availability_set_id           = module.vm_availability_set.id
-   #proximity_placement_group_id  = module.vm_ppg.id
 
   # VM configuration
   vm_size                 = local.vm_size
