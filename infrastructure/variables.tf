@@ -69,7 +69,7 @@ variable "source_image_reference" {
   default = {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = "20.4-LTS"
+    sku       = "20.04-LTS"
     version   = "latest"
   }
 }
