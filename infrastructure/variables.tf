@@ -55,7 +55,7 @@ variable "os_disk" {
   default = {
     caching              = "ReadOnly"
     storage_account_type = "StandardSSD_LRS"
-    disk_size_gb         = "16"
+    disk_size_gb         = "30"
   }
 }
 
