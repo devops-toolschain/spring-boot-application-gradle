@@ -43,8 +43,6 @@ podTemplate(containers: [
                 ]) {
                     
                     dir('infrastructure') {
-                        sh 'echo Inside DIR block'
-
                         sh 'terraform version'
                     
                         sh 'terraform init -reconfigure -no-color \

@@ -75,7 +75,7 @@ module "vm" {
   vm_size                = local.vm_size
   os_disk                = var.os_disk
   source_image_reference = var.source_image_reference
-  tags                   = local.tags
+  tags                   = var.tags
 }
 
 # # Create VM Extensions
