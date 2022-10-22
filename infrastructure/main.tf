@@ -42,6 +42,17 @@ module "vm_nsg_rules" {
   nsg_rules_prefix_range      = local.nsg_rules_range
 }
 
+module "pub_publicip" {
+    source                = "github.com/devops-toolschain/azure-terraform-modules.git//az-publicip"
+    publicip_label        = local.vm_name
+    resource_group_name   = data.azurerm_resource_group.resource_group.name
+    location              = data.azurerm_resource_group.resource_group.location
+    region_code           = module.global.region_code
+    sku                   = "Standard"
+    allocation_method     = "Static"
+    tags                  = var.tags
+}
+
 module "vm_nic" {
   source                        = "github.com/devops-toolschain/azure-terraform-modules.git//az-vm-nic"
   virtual_machine_name          = local.vm_name
@@ -51,7 +62,7 @@ module "vm_nic" {
   subnet_id                     = module.pub_vnet_subnet.id
   private_ip_address            = null
   private_ip_address_allocation = "Dynamic"
-  public_ip_address_id          = null
+  public_ip_address_id          = module.pub_publicip.id
   enable_accelerated_networking = "false"
   tags                          = var.tags
 }
