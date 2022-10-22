@@ -58,30 +58,29 @@ module "vm_nic" {
 }
 
 # # Create Virtual Machine
-# module "vm" {
-#   source = "../../../modules/tf-az-vm-linux"
+module "vm" {
+  source = "github.com/devops-toolschain/azure-terraform-modules.git//az-vm-linux"
 
-#   # Common configuration
-#   resource_group_name = data.azurerm_resource_group.resource_group.name
-#   location            = data.azurerm_resource_group.resource_group.location
-#   vm_name             = var.vm_name[terraform.workspace]
+  # Common configuration
+  vm_name             = local.vm_name
+  resource_group_name = module.pub_rg.name
+  location            = var.location
+  
+  admin_username = "azureadmin"
+  ssh_public_key = file("ssh_keys/id_pub_project.pub")
 
-#   # NIC configurtion
-#   network_interface_ids = [module.vm_nic.id]
-#    #zones                       = ["1"] # Zones must not be set if availability set is required
-#    #availability_set_id           = module.vm_availability_set.id
-#    #proximity_placement_group_id  = module.vm_ppg.id
+  # NIC configurtion
+  network_interface_ids = [module.vm_nic.id]
+   #zones                       = ["1"] # Zones must not be set if availability set is required
+   #availability_set_id           = module.vm_availability_set.id
+   #proximity_placement_group_id  = module.vm_ppg.id
 
-#   # VM configuration
-#   vm_size                 = var.vm_size[terraform.workspace]
-#   storage_os_disk         = var.storage_os_disk[terraform.workspace]
-#   storage_data_disk       = var.storage_data_disk[terraform.workspace]
-#   storage_image_reference = var.storage_image_reference
-#   vm_account_credentials  = local.vm_account_credentials
-#   boot_diagnostics_config = local.boot_diagnostics_config
-#   #zones                   = var.zones[terraform.workspace]
-#   tags                    = local.tags
-# }
+  # VM configuration
+  vm_size                 = local.vm_size
+  os_disk         = var.os_disk
+  source_image_reference  = var.source_image_reference
+  tags                    = local.tags
+}
 
 # # Create VM Extensions
 # module "vm_extensions" {

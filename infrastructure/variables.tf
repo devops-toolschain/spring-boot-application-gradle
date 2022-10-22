@@ -1,6 +1,8 @@
 locals {
 
   vm_name = "spring-app-vm"
+  vm_size = "Standard_D2s_v3"
+
 
   nsg_rules_range = {
     allow_ssh = {
@@ -41,6 +43,34 @@ locals {
         destination_port_range      = "443"
         description                 = "Allow port 443"
     }
+  }
+}
+
+variable "os_disk" {
+    type = object({
+      caching              = string
+      storage_account_type = string
+      disk_size_gb         = string
+    })
+    default = {
+      caching           = "ReadOnly"
+      managed_disk_type = "StandardSSD_LRS"
+      disk_size_gb      = "16"
+    }
+}
+
+variable "source_image_reference" {
+  type = object({
+    publisher = string
+    offer     = string
+    sku       = string
+    version   = string
+  })
+  default = {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "20.4-LTS"
+    version   = "latest"
   }
 }
 
