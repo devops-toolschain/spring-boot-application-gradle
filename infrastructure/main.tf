@@ -43,7 +43,7 @@ module "vm_nsg_rules" {
 }
 
 module "vm_nic" {
-  source                        = "github.com/devops-toolschain/azure-terraform-modules.git//az-nsg-security-rule"
+  source                        = "github.com/devops-toolschain/azure-terraform-modules.git//az-vm-nic"
   virtual_machine_name          = local.vm_name
   resource_group_name           = module.pub_rg.name
   location                      = var.location
